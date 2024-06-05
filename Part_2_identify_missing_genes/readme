@@ -1,1 +1,54 @@
+Step 0 : You need the files groups_100_ment, genes_100_ment and MENTE1834.20230906.recipeA.gene_type
+
+Step 1 : Run the script get_triplet_genes_100.py (it's to not be confused with the name)
+>>>Alignment#X_Alignment#Y_Alignment#Z_temp.txt
+>>>Alignment#X_Alignment#Y_Alignment#Z.txt
+rm *_temp.txt
+mkdir Alignments
+mv Alignment* Aligments 
+
+Step 2 : Order the files Alignment#X_Alignment#Y_Alignment#Z.txt
+-Run order_and_conquer_v5.R 
+>>>alignX_Y_Z_ordered.txt
+mkdir align_ordered
+mv align[0-9]*.txt align_ordered
+
+Step 3 : Create a file which contains only the center region (no part before the beginning or after the ending of the contig)
+./get_center_regions.py
+>>>alignX_Y_Z_centered.txt
+mkdir align_centered
+mv *centered.txt align_centered
+
+Step 4 : Create a file without imperfect lines 
+./remove_unperfect.py
+>>>alignX_Y_Z_final.txt
+mkdir align_final
+mv *final.txt align_final
+
+Step 5 : Create a file with the holes between successive genes
+./find_hole_between_successive.py > expected_loss_by_align.txt
+>>>alignX_Y_Z_expected_loss.txt
+>>>expected_loss_by_align.txt (a file which counts the number of holes between successive by align)
+mkdir align_expected_loss
+mv *loss.txt align_expected_loss
+
+Step 6 : Create a file with all the skipped genes
+./extract_skipped_genes.py
+>>>alignX_Y_Z_skipped_genes.txt
+mkdir align_skipped_genes
+mv *genes.txt align_skipped_genes
+
+Step 7 : Create a file which give the duplication category of skipped genes
+./give_gene_type.py
+>>>alignX_Y_Z_skipped_genes_type.txt
+mkdir align_skipped_genes_type
+mv *type.txt align_skipped_genes_type
+
+Step 8 : Count gene type of the skipped_genes
+./count_skipped_gene_type.py
+>>>alignX_Y_Z_skipped_genes_type_count.txt
+mkdir align_skipped_genes_type_count
+mv *count.txt align_skipped_genes_type_count
+
+
 
