@@ -1,1 +1,8 @@
+###Step 0: The file you need : 'MENTE1834.20230906.recipeA.collinearity'
+
+###Step 1: Get collinearity contigs triplet
+-Change the input file to 'MENTE1834.20230906.recipeA.collinearity' and the min_size to 100 in 'collinearity_to_contigs_ment_bygene.R'
+-Run this R script on RStudio
+>>>'groups_100_ment.txt' : the groups of contigs sharing a bloc of collinearity at least 100 genes 
+>>>'genes_100_ment.txt' : the pairs/triplet of genes belonging to the groups in groups_100_ment.txt
 
