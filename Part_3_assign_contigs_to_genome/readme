@@ -1,1 +1,18 @@
+###Step 0 : You should have every output from the Github to assign genome
 
+###Step 1 : Get contig list
+- get_contigs_ment.ipynb
+>>> Ment_contigs.txt
+
+###Step 2 : Get files to assign subgenomes 
+- Create_an_excel_Ment_subgenomes.ipynb
+>>> Ment_blocks_subgenomes.xlsx
+
+- Create_an_excel_Ment_contigs_subgenomes.ipynb
+>>> Ment_contigs_subgenomes.xlsx
+
+###Step 3 : Get contigs length and subgenomes length
+-awk '/^>/{if (l!="") print l; print; l=0; next}{l+=length($0)}END{print l}' xyz_genome.fa > contigs_and_length.txt
+-awk 'NR%2{printf "%s ",$0;next;}1' contigs_and_length.txt > contigs_length.txt
+
+- get_values_from_subgenomes.ipynb
