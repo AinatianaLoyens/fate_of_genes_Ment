@@ -1,4 +1,4 @@
-###Step 0 : You should have every output from the Github to assign genome including Ment_blocks.dsv
+###Step 0 : You should have every output from the Github to assign genome including Ment_blocks_def.tsv
 
 ###Step 1 : Get contig list
 - get_contigs_ment.ipynb
