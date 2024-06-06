@@ -1,1 +1,18 @@
+###Step 0: What you need in the same directory : 
+-'Ment_100_blocks_subgenomes.xlsx' : the excel in which the contigs are assigned to subgenomes (it's got at the end of the work on subgenome assignation)
+-subgenome.py : a module with useful functions to get the query sequences 
+-align_expected_loss : a directory of files where genes between successive are identified (it's got at the end of the Part 2)
+-'menterolobii.e1834.20230906.recipeA_prot.fna' : the fasta file of all proteins of the genome
+-'Meloidogyne_enterolobii_E1834_Hifi_Peregrine_genome.fa' : the fasta file of the contigs of the genome (too huge to put on Github)
 
+###Step 1: Get the list of the query genes
+./give_genes_to_use.py
+>>>align_gene_exonerate/alignX_Y_Z_gene_exonerate.txt
+
+###Step 2: Get the fasta files of the query sequences
+./make_prot_fasta_files.py 
+>>>align_gene_exonerate/alignX_Y_Z_gene_dir/{gene_name}_prot.fasta 
+
+###Step 3: Use exonerate on Genotoul.
+./exonerate_all_prot.sh
+>>>align_gene_exonerate/alignX_Y_Z_gene_dir/{gene_name}_prot2genome.exonerate
